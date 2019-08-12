@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/todostyle.css">
+    <link>
+</head>
+<h1 class="header">ToDo App</h1>
+<hr>
+
+<body>
+    <div class="container" id="todo">
+        <div class="col-md-6 col-md-offset-3">
+            <input type="text" id="todoId" placeholder="Id..."><br>
+        </div>
+        <div class="col-md-6 col-md-offset-3">
+            <input type="text" id="task" class="todo" placeholder="Task..."><br>
+        </div>
+        <div class="col-md-6 col-md-offset-3">
+            <input type="text" id="des" placeholder="Description..."><br>
+        </div>
+        <button type="button" class="btn" onClick=newElement()>Add Task</button>
+    </div>
+    <ul id="myUL" class="list">
+
+    </ul>
+    <script>
+        var listobjects= new array();
+       var j;
+        function newElement() {
+            j=0;
+            var li = document.createElement("li");
+            var task = document.getElementById("task").value;
+            var todoId = document.getElementById("todoId").value;
+            var des = document.getElementById("des").value;
+            var t = document.createTextNode(todoId + " " + task + " - " + des);
+            li.appendChild(t);
+            if (task === '') {
+                alert("no Todos. Please add one!");
+            } else {
+                document.getElementById("myUL").appendChild(li);
+                listobjects[c++]=task;
+            }
+            document.getElementById("task").value = "";
+            var span = document.createElement("SPAN");
+            var txt = document.createTextNode("\u00D7");
+            span.className = "close";
+            span.appendChild(txt);
+            li.appendChild(span);
+            var closeimage = document.getElementsByClassName('close');
+            for (var i = 0; i < closeimage.length; i++) {
+                closeimage[i].onclick = function () {
+                    var div = this.parentElement;
+                    div.style.display = "none";
+                }
+            }
+
+        }
+    </script>
+</body>
+
+</html>
